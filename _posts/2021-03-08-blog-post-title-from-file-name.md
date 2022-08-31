@@ -7,8 +7,6 @@ If the file does not start with a header, then the post title will be derived fr
 This is a sample blog post. You can talk about all sorts of fun things here.
 
 ---
-![image](https://user-images.githubusercontent.com/79766677/187768300-1a407090-6895-4f06-ac2f-3cf59eb86eaf.png)
-
 ### This is a header
 
 #### Some T-SQL Code
