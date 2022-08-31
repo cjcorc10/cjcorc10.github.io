@@ -16,7 +16,7 @@ ports 22, 80, and 3306 are open.
 The output also tells us that the website is using Joomla CMS
 
 
-#### Gobuster scan
+### Gobuster scan
 Since we know it's hosting a website we will use gobuster to enumerate
 
 ![image](https://user-images.githubusercontent.com/79766677/187802234-6df6d18e-22e0-477e-82a1-3fe4ab4ea8f2.png)
