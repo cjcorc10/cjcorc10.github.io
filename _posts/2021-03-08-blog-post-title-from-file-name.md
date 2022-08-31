@@ -16,6 +16,8 @@ ports 22, 80, and 3306 are open.
 The output also tells us that the website is using Joomla CMS
 
 
+
+
 ### Gobuster scan
 Since we know it's hosting a website we will use gobuster to enumerate
 
@@ -24,5 +26,14 @@ Since we know it's hosting a website we will use gobuster to enumerate
 
 
 
-Going to administrator we find the Joomla login page
+Going to administrator we find the Joomla login page:
+
 ![image](https://user-images.githubusercontent.com/79766677/187802487-d4443e19-4efd-4dcf-936f-d6ab30005040.png)
+
+
+Now we need to find a way to get the version of Joomla to check for any known vulnerabilities.
+
+
+Going back to the gobuster scan we notice that some text files were found (README, LICENSE, and htacccess) and we can find the version of Joomla in the README.txt file.
+
+###Exploit-DB
