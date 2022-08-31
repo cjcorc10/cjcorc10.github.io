@@ -9,30 +9,20 @@ ports 22, 80, and 3306 are open.
 
 22 - ssh
 
-80 - Apache httpd 2.4.6
+80 - Apache httpd 2.4.6, running Joomla
 
-3306 - mariadb with mysql
+3306 - mysql
 
 The output also tells us that the website is using Joomla CMS
 
 
-#### Some T-SQL Code
+#### Gobuster scan
+Since we know it's hosting a website we will use gobuster to enumerate
 
-```tsql
-SELECT This, [Is], A, Code, Block -- Using SSMS style syntax highlighting
-    , REVERSE('abc')
-FROM dbo.SomeTable s
-    CROSS JOIN dbo.OtherTable o;
-```
+![image](https://user-images.githubusercontent.com/79766677/187802234-6df6d18e-22e0-477e-82a1-3fe4ab4ea8f2.png)
 
-#### Some PowerShell Code
 
-```powershell
-Write-Host "This is a powershell Code block";
 
-# There are many other languages you can use, but the style has to be loaded first
 
-ForEach ($thing in $things) {
-    Write-Output "It highlights it using the GitHub style"
-}
-```
+Going to administrator we find the Joomla login page
+![image](https://user-images.githubusercontent.com/79766677/187802487-d4443e19-4efd-4dcf-936f-d6ab30005040.png)
