@@ -7,7 +7,7 @@ This room requires us to compromise a Joomla CMS account via SQLi, practice crac
 
 ports 22, 80, and 3306 are open.
 22 - ssh
-80 - Apache httpd 2.4.6
+80 - Apache httpd 2.4.6\n
 3306 - mariadb with mysql
 The output also tells us that the website is using Joomla CMS
 
