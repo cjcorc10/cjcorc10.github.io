@@ -26,7 +26,7 @@ Since we know it's hosting a website we will use gobuster to enumerate
 
 
 
-Going to administrator we find the Joomla login page:
+Going to /administrator we find the Joomla login page:
 
 ![image](https://user-images.githubusercontent.com/79766677/187802487-d4443e19-4efd-4dcf-936f-d6ab30005040.png)
 
@@ -36,4 +36,12 @@ Now we need to find a way to get the version of Joomla to check for any known vu
 
 Going back to the gobuster scan we notice that some text files were found (README, LICENSE, and htacccess) and we can find the version of Joomla in the README.txt file.
 
-###Exploit-DB
+### Exploiting Joomla 
+After some research, I found a python script to exploit 3.7.0 on github.
+
+The script returned account information for Super User jonah, including a password hash:
+
+![image](https://user-images.githubusercontent.com/79766677/187804226-05589c47-60ff-4b7e-9a48-c30974f7adbc.png)
+
+After about 10 minutes John cracks jonah's password and we get credentials to login to joomla.
+
