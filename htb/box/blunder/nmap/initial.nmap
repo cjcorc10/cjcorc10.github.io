@@ -1,0 +1,13 @@
+# Nmap 7.93 scan initiated Fri Mar 31 20:24:25 2023 as: nmap -sC -sV -o nmap/initial.nmap 10.129.241.199
+Nmap scan report for 10.129.241.199
+Host is up (0.052s latency).
+Not shown: 998 filtered tcp ports (no-response)
+PORT   STATE  SERVICE VERSION
+21/tcp closed ftp
+80/tcp open   http    Apache httpd 2.4.41 ((Ubuntu))
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+|_http-title: Blunder | A blunder of interesting facts
+|_http-generator: Blunder
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri Mar 31 20:24:42 2023 -- 1 IP address (1 host up) scanned in 17.06 seconds

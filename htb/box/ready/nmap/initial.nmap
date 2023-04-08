@@ -1,0 +1,22 @@
+# Nmap 7.93 scan initiated Tue Apr  4 18:32:27 2023 as: nmap -sC -sV -o nmap/initial.nmap 10.129.227.132
+Nmap scan report for 10.129.227.132
+Host is up (0.052s latency).
+Not shown: 998 closed tcp ports (conn-refused)
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 8.2p1 Ubuntu 4 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 48add5b83a9fbcbef7e8201ef6bfdeae (RSA)
+|   256 b7896c0b20ed49b2c1867c2992741c1f (ECDSA)
+|_  256 18cd9d08a621a8b8b6f79f8d405154fb (ED25519)
+5080/tcp open  http    nginx
+| http-title: Sign in \xC2\xB7 GitLab
+|_Requested resource was http://10.129.227.132:5080/users/sign_in
+| http-robots.txt: 53 disallowed entries (15 shown)
+| / /autocomplete/users /search /api /admin /profile 
+| /dashboard /projects/new /groups/new /groups/*/edit /users /help 
+|_/s/ /snippets/new /snippets/*/edit
+|_http-trane-info: Problem with XML parsing of /evox/about
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Tue Apr  4 18:32:50 2023 -- 1 IP address (1 host up) scanned in 23.62 seconds
