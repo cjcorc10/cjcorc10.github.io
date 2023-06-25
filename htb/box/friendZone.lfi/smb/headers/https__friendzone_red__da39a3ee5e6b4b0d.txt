@@ -1,9 +1,0 @@
-200 OK
-Accept-Ranges: bytes
-Vary: Accept-Encoding
-Retry-Count: 0
-Etag: "ee-57781cf9aaa2d-gzip"
-Content-Type: text/html
-Date: Wed, 15 Mar 2023 03:11:02 GMT
-Server: Apache/2.4.29 (Ubuntu)
-Last-Modified: Fri, 05 Oct 2018 21:18:21 GMT

@@ -1,9 +1,0 @@
-200 OK
-Content-Type: text/html
-Date: Wed, 15 Mar 2023 03:11:02 GMT
-Server: Apache/2.4.29 (Ubuntu)
-Last-Modified: Fri, 05 Oct 2018 22:54:42 GMT
-Etag: "42-57783282d95e6"
-Accept-Ranges: bytes
-Content-Length: 66
-Retry-Count: 0
