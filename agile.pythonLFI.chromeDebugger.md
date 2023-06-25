@@ -6,17 +6,28 @@
 
 ```bash
 └─$ nmap -sC -sV -o nmap/initial.nmap $IP
+Starting Nmap 7.93 ( https://nmap.org ) at 2023-04-23 18:55 EDT
+Nmap scan report for 10.129.228.212
+Host is up (0.051s latency).
+Not shown: 998 closed tcp ports (conn-refused)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.1 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey:
+|   256 f4bcee21d71f1aa26572212d5ba6f700 (ECDSA)
+|_  256 65c1480d88cbb975a02ca5e6377e5106 (ED25519)
+80/tcp open  http    nginx 1.18.0 (Ubuntu)
+|_http-server-header: nginx/1.18.0 (Ubuntu)
+|_http-title: Did not follow redirect to http://superpass.htb
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 10.04 seconds
 ```
 
 The Nmap scan report revealed two open ports:
 - SSH (22/tcp) running OpenSSH 8.9p1 Ubuntu 3ubuntu0.1
 - HTTP (80/tcp) running Nginx 1.18.0 (Ubuntu)
 
-```bash
-Nmap scan report for 10.129.228.212
-Host is up (0.051s latency).
-Not shown: 998 closed tcp ports (conn-refused)
-```
 ### Discovered Services
 
 * SSH (Port 22) - Reveals Jammy OS according to Launchpad
