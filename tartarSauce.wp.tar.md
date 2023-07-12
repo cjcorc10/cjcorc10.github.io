@@ -303,3 +303,28 @@ onuma@TartarSauce:/var/tmp/check/var/www/html$ ./red
 root@TartarSauce:/var/tmp/check/var/www/html# whoami
 root
 ```
+## AfterRoot
+
+After I got ROOT I was curious how systemd timers work, so I took a look at the backuperer timed service and found two files:
+```bash
+root@TartarSauce:/lib/systemd/system# cat backuperer.service
+[Unit]
+Description=Backuperer
+
+[Service]
+ExecStart=/usr/sbin/backuperer
+root@TartarSauce:/lib/systemd/system# cat backuperer.timer
+[Unit]
+Description=Runs backuperer every 5 mins
+
+[Timer]
+# Time to wait after booting before we run first time
+OnBootSec=5min
+# Time between running each consecutive time
+OnUnitActiveSec=5min
+Unit=backuperer.service
+
+[Install]
+WantedBy=multi-user.target
+```
+A service needs to be defined `backuperer.service`. This file describes the actual task that needs to be performed by the service. The timer file is used to control the scheduling of the service with `backuperer.timer`
