@@ -60,6 +60,9 @@ We will being using kerbrute to enumerate usernames from the DC with a user list
 
 The pre-authentication phase of kerberos is used to prove a requestors identity so that they may receive an encrypted TGT from the KDC. The requestor will send a username in the AS-REQ request and the DC will reply with an AS-REP if the user exists or an error if not. By observing the responsed to the requests sent an attacker can determine if the usernames exist or not.
 
+This can enumerate any valid username, not just the ones with pre-authentication disabled. If a query is sent with a username that has pre-authentication enabled the DC will error that the username is valid, but pre-authentication is required. If it's not a valid username it will respond that the username does not exist. 
+
+**BUT**, if the user does not have pre-authentication enabled we can retreive a TGT from the KDC with the `GetNPUsers.py` script.
 ```bash
 └─$ ./kerbrute_linux_amd64 userenum -d ACTIVE.HTB --dc 10.129.159.68 /usr/share/wordlists/jsmith.txt -o ~/htb/box/active/userenum.txt
 
